@@ -1,82 +1,48 @@
-# Model Comparison and Selection
+# Saving the Final Model
 
-## Purpose of `compareModel()`
+## Overview
 
-The `compareModel()` function is used to compare the performance of all trained machine learning models in a single view. It helps identify the best-performing algorithm by evaluating each model using common performance metrics.
+After evaluating all machine learning models, **XGBoost** was selected as the final model because of its high prediction accuracy and reliable performance. Instead of retraining the model every time a prediction is required, the trained model is saved for future use.
 
-## Models Evaluated
+## Why Save the Model?
 
-The following classification models were trained and tested:
+Saving the trained model provides several advantages:
 
-- Decision Tree
-- Random Forest
-- K-Nearest Neighbors (KNN)
-- XGBoost
+- Eliminates the need to retrain the model.
+- Reduces prediction time.
+- Ensures consistent prediction results.
+- Improves deployment efficiency.
 
-## Evaluation Metrics
+## Saving the Model
 
-Each model is evaluated using the following metrics:
+The **Joblib** library is used to save the trained machine learning model and the fitted feature scaler.
 
-### Accuracy Score
-- Measures the percentage of correctly classified instances.
-- Higher accuracy indicates better model performance.
+### Saved Files
 
-### Confusion Matrix
-- Displays the number of:
-  - True Positives (TP)
-  - True Negatives (TN)
-  - False Positives (FP)
-  - False Negatives (FN)
-- Helps analyze classification performance in detail.
+| File Name | Purpose |
+|-----------|---------|
+| `floods.save` | Stores the trained XGBoost model. |
+| `transform.save` | Stores the fitted StandardScaler used during preprocessing. |
 
-### Classification Report
+## Prediction Workflow
 
-The classification report provides:
+During deployment, the prediction process follows these steps:
 
-- **Precision** – Percentage of correctly predicted positive observations.
-- **Recall** – Percentage of actual positive observations correctly identified.
-- **F1-Score** – Harmonic mean of Precision and Recall.
-- **Support** – Number of samples available for each class.
+1. Load the saved **StandardScaler (`transform.save`)**.
+2. Standardize the user input using the loaded scaler.
+3. Load the trained **XGBoost model (`floods.save`)**.
+4. Pass the transformed input to the model.
+5. Generate the flood prediction.
+6. Display the prediction result to the user.
 
-## Model Performance
+## Benefits
 
-| Model | Accuracy |
-|--------|---------:|
-| Decision Tree | 96.55% |
-| Random Forest | 96.55% |
-| K-Nearest Neighbors (KNN) | Evaluated |
-| XGBoost | **96.55%** |
-
-Although Decision Tree, Random Forest, and XGBoost achieved the same accuracy, **XGBoost** was selected as the final deployment model.
-
-## Why XGBoost Was Selected?
-
-- Excellent generalization on structured datasets.
-- Boosting algorithm that learns from previous prediction errors.
-- More stable than a single Decision Tree.
-- Less prone to overfitting.
-- Handles complex patterns efficiently.
-- Provides reliable prediction performance.
-
-## Deployment
-
-The selected **XGBoost** model is saved using **Pickle** or **Joblib**.
-
-During deployment:
-
-1. The saved model is loaded into the Flask application.
-2. User input is preprocessed.
-3. The trained XGBoost model generates predictions.
-4. The prediction result is displayed to the user.
-
-## References
-
-- Confusion Matrix:
-  https://www.analyticsvidhya.com/blog/2020/04/confusion-matrix-machine-learning/
-
-- Classification Report:
-  https://medium.com/@kohlishivam5522/understanding-a-classification-report-for-your-machine-learning-model-88815e2ce397
+- Faster predictions.
+- Consistent preprocessing.
+- No need for retraining.
+- Reliable real-time predictions.
+- Easy integration with Flask applications.
 
 ## Conclusion
 
-The model comparison process ensures that the most suitable algorithm is selected based on performance metrics. XGBoost was chosen for deployment because it offers high accuracy, strong generalization, and reliable prediction performance for flood prediction.
+Saving both the trained XGBoost model and the fitted StandardScaler ensures that the deployed Flood Prediction System performs predictions efficiently and consistently. This approach improves deployment speed, maintains prediction accuracy, and provides reliable real-time flood prediction results.
