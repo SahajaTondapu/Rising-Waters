@@ -1,4 +1,99 @@
-# Random Forest Model
+# Gradient Boosting Model
+
+## Library Imports
+
+The Gradient Boosting model uses the following Python libraries:
+
+- **Scikit-learn** – Provides the `GradientBoostingClassifier` algorithm.
+- **Performance Metrics** – Used to evaluate the model using Accuracy Score, Confusion Matrix, and Classification Report.
+
+## Function Definition
+
+A reusable function is created to build, train, and evaluate the Gradient Boosting model.
+
+The function accepts the following parameters:
+
+- `X_train`
+- `X_test`
+- `y_train`
+- `y_test`
+
+## Model Initialization
+
+The `GradientBoostingClassifier` is initialized with suitable parameters to build the classification model.
+
+```python
+from sklearn.ensemble import GradientBoostingClassifier
+
+model = GradientBoostingClassifier()
+```
+
+## Model Training
+
+The model is trained using the `fit()` method.
+
+```python
+model.fit(X_train, y_train)
+```
+
+During training, the algorithm learns patterns from the training dataset to improve prediction accuracy.
+
+## Prediction
+
+The trained model predicts the target values for the testing dataset using the `predict()` method.
+
+```python
+y_pred = model.predict(X_test)
+```
+
+The predicted values are compared with the actual values to evaluate model performance.
+
+## Model Evaluation
+
+The performance of the Gradient Boosting model is evaluated using:
+
+### Accuracy Score
+
+- Measures the percentage of correctly classified records.
+
+### Confusion Matrix
+
+Displays:
+
+- True Positives (TP)
+- True Negatives (TN)
+- False Positives (FP)
+- False Negatives (FN)
+
+### Classification Report
+
+Provides detailed evaluation metrics including:
+
+- **Precision**
+- **Recall**
+- **F1-Score**
+- **Support**
+
+## Output
+
+The function:
+
+- Trains the Gradient Boosting model.
+- Generates predictions.
+- Displays the evaluation metrics.
+- Returns the trained model and prediction results for further use or deployment.
+
+## Advantages
+
+- High prediction accuracy.
+- Reduces bias through sequential learning.
+- Handles complex datasets effectively.
+- Suitable for classification tasks.
+
+## Conclusion
+
+Gradient Boosting is a powerful ensemble learning algorithm that builds multiple weak learners sequentially to improve prediction performance. It provides accurate and reliable results for flood prediction by minimizing prediction errors during training.# Random Forest Model
+
 
 ## Library Imports
 
