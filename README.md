@@ -1,41 +1,34 @@
-# Univariate Analysis
+# Multivariate Analysis
 
-Univariate analysis examines each feature of the dataset individually to understand its distribution, frequency, and pattern without comparing it with other variables. This analysis helps identify the characteristics of both numerical and categorical features before building machine learning models.
+Multivariate analysis examines the relationships among multiple features simultaneously to identify patterns, dependencies, and interactions within the dataset. It plays an important role in feature selection and helps improve the performance of machine learning models.
 
 ## Objectives
 
-- Understand the distribution of each feature.
-- Identify skewness and data imbalance.
-- Detect potential outliers.
-- Support effective data preprocessing and feature engineering.
+- Identify relationships between multiple variables.
+- Understand feature dependencies.
+- Detect highly correlated features.
+- Improve feature selection for better model accuracy.
 
-## Distribution Plots
+## Heat Map
 
-Distribution plots are used to visualize the spread of numerical data.
-
-### Purpose
-
-- Determine whether data follows a normal or skewed distribution.
-- Identify where most values are concentrated.
-- Analyze the shape and spread of features such as rainfall and temperature.
-- Assist in selecting appropriate preprocessing and feature scaling techniques.
-
-## Box Plots
-
-Box plots summarize the statistical distribution of numerical variables using quartiles.
+A **Heat Map** is a graphical representation of the correlation between variables using different color intensities.
 
 ### Purpose
 
-- Display the median and quartiles.
-- Detect outliers in the dataset.
-- Visualize the spread of data.
-- Help determine whether outlier treatment is required.
+- Visualize correlations among numerical features.
+- Identify strong positive and negative correlations.
+- Detect weakly correlated features that may be removed.
+- Reduce dataset complexity.
+- Improve machine learning model efficiency and accuracy.
 
-## Importance
+## Benefits of Heat Maps
 
-Performing univariate analysis helps in:
+- Simplifies correlation analysis.
+- Helps in selecting important features.
+- Reduces redundant variables.
+- Supports effective data preprocessing.
+- Improves overall model performance.
 
-- Understanding the behavior of individual variables.
-- Detecting anomalies before model training.
-- Improving preprocessing decisions.
-- Enhancing the overall performance of machine learning models.
+## Conclusion
+
+Multivariate analysis provides valuable insights into relationships between dataset features. Heat maps assist in understanding feature correlations, enabling efficient feature selection and enhancing the accuracy and reliability of the Flood Prediction System.
