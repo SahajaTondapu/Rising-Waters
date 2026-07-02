@@ -1,45 +1,52 @@
-# Outlier Handling
+# Splitting the Dataset into Independent and Dependent Variables
 
-Outlier handling is an important data preprocessing step because extreme values can negatively affect the performance of machine learning models. Outliers are identified using statistical methods and visualization techniques before model training.
+## Core Concept
 
-## What are Outliers?
+Splitting the dataset into independent and dependent variables is an important step before training a machine learning model. This process separates the input features from the target variable, enabling the model to learn the relationship between them and make accurate predictions.
 
-Outliers are data points that significantly differ from the majority of observations in the dataset. These extreme values may occur due to measurement errors, data entry mistakes, or natural variations.
+## Independent Variables (X)
 
-## Detecting Outliers
+The **Independent Variables (X)** are the input features used by the machine learning model for prediction.
 
-The following techniques are used to identify outliers:
+### Purpose
 
-### Box Plot
+- Contain useful information required for prediction.
+- Represent the input features of the dataset.
+- Help the model identify patterns and relationships.
+- Only relevant features are selected to improve prediction accuracy.
 
-- Visualizes the spread of numerical data.
-- Helps identify values that lie outside the normal range.
-- Clearly displays the median, quartiles, and extreme values.
+## Dependent Variable (y)
 
-### Interquartile Range (IQR)
+The **Dependent Variable (y)** is the target variable that the model is trained to predict.
 
-The Interquartile Range (IQR) method detects outliers using the following calculations:
+### Purpose
 
-- **IQR = Q3 − Q1**
-- **Lower Bound = Q1 − 1.5 × IQR**
-- **Upper Bound = Q3 + 1.5 × IQR**
+- Represents the output or prediction label.
+- Contains one value for each record in the dataset.
+- Used as the expected result during model training.
 
-Values outside these bounds are considered outliers.
+## Creating X and y
 
-## Outlier Treatment
+The dataset is divided into input and output variables using the following approach:
 
-Instead of removing outliers, the **IQR-based capping technique** is applied.
+```python
+X = dataset.drop('class', axis=1)
+y = dataset['class']
+```
 
-- Values greater than the upper bound are replaced with the upper bound.
-- Values lower than the lower bound are replaced with the lower bound.
+- `X` contains all input features.
+- `y` contains the target variable (class).
 
-This method preserves the dataset size while minimizing the impact of extreme values.
+## Importance
 
-## Workflow Impact
+Splitting the dataset into **X** and **y** provides several benefits:
 
-Handling outliers improves data quality and model performance by:
+- Separates input and output data.
+- Prepares the dataset for train-test splitting.
+- Improves model training and evaluation.
+- Enables the algorithm to learn meaningful patterns.
+- Supports accurate flood prediction.
 
-- Reducing the influence of extreme values.
-- Maintaining dataset consistency.
-- Preventing biased predictions.
-- Improving the accuracy and reliability of machine learning models.
+## Conclusion
+
+Separating the dataset into independent variables (**X**) and the dependent variable (**y**) is a fundamental preprocessing step. It ensures that the machine learning model learns from the input features and predicts the correct output efficiently.
