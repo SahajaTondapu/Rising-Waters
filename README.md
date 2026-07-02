@@ -1,19 +1,41 @@
-# Dataset
+# Importing Libraries
 
-The flood prediction dataset contains features responsible for predicting flood events, including annual rainfall, cloud visibility, June–September rainfall, and other meteorological variables.
+The Flood Prediction System uses various Python libraries for data processing, visualization, machine learning, and web application development.
 
-The dataset used in this project is collected from Kaggle, a widely used open-source platform for machine learning datasets.
+## Libraries Used
 
-**Dataset Source:**  
-https://www.kaggle.com/arbethi/rainfall-dataset?select=flood+dataset.xlsx
+### NumPy
+- Used for numerical computations and array operations.
 
-## Dataset Features
+### Pandas
+- Used for data manipulation, cleaning, and analysis.
 
-- Annual Rainfall
-- Cloud Visibility
-- June–September Rainfall
-- Temperature
-- Humidity
-- Flood Status (Target Variable)
+### Matplotlib
+- Used to create charts and graphs for data visualization.
 
-The dataset is used to train and evaluate machine learning models for predicting the likelihood of flood events.
+### Seaborn
+- Used to generate attractive statistical visualizations such as heatmaps and distribution plots.
+
+### Scikit-learn
+- Used for data preprocessing, machine learning model training, testing, and performance evaluation.
+
+### XGBoost
+- Used to build an advanced machine learning model with improved prediction accuracy.
+
+### Flask
+- Used to develop the web application and integrate the trained machine learning model.
+
+### Joblib / Pickle
+- Used to save and load trained machine learning models for deployment.
+
+## Purpose
+
+These libraries provide the foundation for:
+
+- Data preprocessing
+- Data analysis
+- Data visualization
+- Machine learning model development
+- Model evaluation
+- Web application development
+- Model deployment
