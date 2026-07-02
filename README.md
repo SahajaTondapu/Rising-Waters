@@ -1,34 +1,44 @@
-# Multivariate Analysis
+# Descriptive Analysis
 
-Multivariate analysis examines the relationships among multiple features simultaneously to identify patterns, dependencies, and interactions within the dataset. It plays an important role in feature selection and helps improve the performance of machine learning models.
+Descriptive analysis provides a summary of the dataset by examining its structure, data types, and statistical properties. It helps in understanding the quality of the data before preprocessing and machine learning model development.
 
-## Objectives
+## Data Exploration Functions
 
-- Identify relationships between multiple variables.
-- Understand feature dependencies.
-- Detect highly correlated features.
-- Improve feature selection for better model accuracy.
+### `head()`
+Displays the first few rows of the dataset to understand its structure and verify that the data has been loaded correctly.
 
-## Heat Map
+### `info()`
+Provides information about:
+- Column names
+- Data types
+- Number of non-null values
+- Missing values
+- Memory usage
 
-A **Heat Map** is a graphical representation of the correlation between variables using different color intensities.
+### `describe()`
+Generates statistical summaries for numerical features, including:
+- Mean
+- Standard Deviation
+- Minimum Value
+- Maximum Value
+- 25th Percentile
+- 50th Percentile (Median)
+- 75th Percentile
 
-### Purpose
+## Understanding Data Types
 
-- Visualize correlations among numerical features.
-- Identify strong positive and negative correlations.
-- Detect weakly correlated features that may be removed.
-- Reduce dataset complexity.
-- Improve machine learning model efficiency and accuracy.
+The dataset contains different types of data:
 
-## Benefits of Heat Maps
+- **Numerical Data:** Rainfall, Temperature, Humidity, Cloud Visibility, etc.
+- **Categorical Data:** Flood Status or other category-based features (if available).
 
-- Simplifies correlation analysis.
-- Helps in selecting important features.
-- Reduces redundant variables.
-- Supports effective data preprocessing.
-- Improves overall model performance.
+Understanding these data types helps determine suitable preprocessing methods and machine learning algorithms.
 
-## Conclusion
+## Workflow Impact
 
-Multivariate analysis provides valuable insights into relationships between dataset features. Heat maps assist in understanding feature correlations, enabling efficient feature selection and enhancing the accuracy and reliability of the Flood Prediction System.
+Descriptive analysis provides a clear overview of the dataset and helps:
+
+- Understand the dataset structure.
+- Identify missing values and incorrect data types.
+- Detect inconsistencies before preprocessing.
+- Support effective feature engineering and model development.
