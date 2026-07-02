@@ -1,75 +1,90 @@
-# Decision Tree Model
+# Random Forest Model
 
-## Function Initialization
+## Library Imports
 
-A separate function named `decisiontree()` is created to build, train, and evaluate the Decision Tree model. The function accepts the following parameters:
+The Random Forest model uses the following Python libraries:
 
-- `X_train`
-- `X_test`
-- `y_train`
-- `y_test`
+- **NumPy** – Used for numerical computations.
+- **Scikit-learn** – Provides the `RandomForestClassifier` algorithm and evaluation metrics such as Accuracy Score, Confusion Matrix, and Classification Report.
 
-This modular approach makes the code reusable, organized, and easy to maintain.
+## Function Definition
 
-## Algorithm Overview
+A reusable function named `randomForest()` is created to build, train, and evaluate the Random Forest model.
 
-The **DecisionTreeClassifier** from the Scikit-learn library is used to build the prediction model.
+The classifier is initialized with important hyperparameters such as:
 
-A Decision Tree is a supervised machine learning algorithm used for classification and prediction. It works by splitting the dataset into multiple branches based on feature values.
-
-Each internal node represents a decision condition, while each leaf node represents the final predicted class.
+- `n_estimators` – Specifies the number of decision trees.
+- `random_state` – Ensures reproducible and consistent results.
 
 ## Model Training
 
 The model is trained using the `fit()` method.
 
-During training, the algorithm learns the relationship between the input features and the target variable.
-
 ```python
 model.fit(X_train, y_train)
 ```
 
+During training, the Random Forest algorithm learns patterns from the training dataset by constructing multiple decision trees.
+
 ## Prediction
 
-After training, the `predict()` method is used to generate predictions on the testing dataset.
+The trained model predicts the output for unseen testing data using the `predict()` method.
 
 ```python
 y_pred = model.predict(X_test)
 ```
 
-The predicted values are compared with the actual values to evaluate model performance.
+The predicted values are then compared with the actual test labels to evaluate the model's performance.
 
 ## Model Evaluation
 
-The performance of the Decision Tree model is evaluated using the following metrics:
+The performance of the Random Forest model is evaluated using the following metrics:
+
+### Accuracy Score
+
+- Measures the percentage of correctly predicted observations.
+- Provides the overall performance of the model.
 
 ### Confusion Matrix
 
-The confusion matrix displays:
+Displays:
 
 - True Positives (TP)
 - True Negatives (TN)
 - False Positives (FP)
 - False Negatives (FN)
 
-It helps determine how accurately the model classifies flood predictions.
+It helps evaluate the classification performance in detail.
 
 ### Classification Report
 
 The classification report includes:
 
-- **Precision** – Percentage of correctly predicted positive observations.
-- **Recall** – Percentage of actual positive observations correctly identified.
-- **F1-Score** – Harmonic mean of Precision and Recall.
-- **Support** – Number of actual samples available for each class.
+- **Precision** – Correctly predicted positive observations.
+- **Recall** – Correctly identified actual positive observations.
+- **F1-Score** – Balance between Precision and Recall.
+- **Support** – Number of samples in each class.
+
+## Output
+
+The function prints the evaluation results, including:
+
+- Accuracy Score
+- Confusion Matrix
+- Classification Report
+
+It also returns:
+
+- The trained Random Forest model.
+- Predicted output values for future analysis or deployment.
 
 ## Advantages
 
-- Easy to understand and interpret.
-- Handles numerical and categorical data.
-- Requires minimal data preprocessing.
-- Suitable for classification problems.
+- High prediction accuracy.
+- Reduces overfitting by combining multiple decision trees.
+- Handles large datasets efficiently.
+- Performs well with both numerical and categorical features.
 
 ## Conclusion
 
-The Decision Tree model is trained and evaluated to determine its prediction performance. If the model achieves satisfactory accuracy, it can be selected for deployment. Otherwise, its performance is compared with other algorithms such as Random Forest, K-Nearest Neighbors (KNN), and XGBoost to identify the best-performing model.
+The Random Forest algorithm is one of the most reliable ensemble learning techniques for classification tasks. By combining the predictions of multiple decision trees, it improves prediction accuracy, reduces overfitting, and provides robust flood prediction results.
