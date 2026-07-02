@@ -1,86 +1,93 @@
-# Frontend Development
+# Running the Application
 
-## Overview
+## 1. Launching the Application
 
-The frontend of the Flood Prediction System is developed using the Flask framework. It uses the **templates/** folder to store HTML pages and the **static/** folder to store CSS and JavaScript files. This structure provides a clean, organized, and user-friendly interface for interacting with the flood prediction model.
+Follow these steps to start the Flood Prediction System:
 
-## templates/ Folder (HTML Pages)
+1. Open **Anaconda Prompt**.
+2. Navigate to the project directory containing the `app.py` file.
 
-The **templates/** folder contains the HTML pages used by the application.
-
-### home.html
-
-- Landing page of the application.
-- Introduces the Flood Prediction System.
-- Provides navigation to the prediction page.
-
-### index.html
-
-- Contains the input form for weather parameters.
-- Collects user input and sends it to the Flask backend for prediction.
-
-### chance.html
-
-- Displays when the model predicts a **high probability of flooding**.
-- Shows an alert message to the user.
-
-### no_chance.html
-
-- Displays when the model predicts **no flood risk**.
-- Shows a safe status message.
-
----
-
-## static/ Folder (Frontend Assets)
-
-The **static/** folder stores the application's styling and interactive files.
-
-### main.css
-
-- Controls the layout and design.
-- Improves the appearance of the application.
-- Provides responsive styling for different screen sizes.
-
-### main.js
-
-- Adds interactivity to the web pages.
-- Performs form validation.
-- Handles button actions and client-side functionality.
-
----
-
-## Folder Structure
-
-```text
-Flood_Prediction/
-│
-├── templates/
-│   ├── home.html
-│   ├── index.html
-│   ├── chance.html
-│   └── no_chance.html
-│
-├── static/
-│   ├── main.css
-│   └── main.js
-│
-└── app.py
+```bash
+cd path/to/your/project/folder
 ```
 
-## Advantages
+3. Run the Flask application.
 
-- Well-organized project structure.
-- Easy to maintain and update.
-- Improves user experience.
-- Separates frontend and backend logic.
-- Supports scalable web application development.
+```bash
+python app.py
+```
 
-## References
+---
 
-- HTML: https://www.w3schools.com/html/
-- CSS: https://www.w3schools.com/css/
-- JavaScript: https://www.w3schools.com/js/
+## 2. Accessing the Web Interface
+
+After starting the application, the terminal displays a local server URL similar to:
+
+```text
+http://127.0.0.1:5000/
+```
+
+Open this URL in your web browser to access the Flood Prediction System.
+
+---
+
+## 3. User Prediction Workflow
+
+1. Open the application home page.
+2. Click **Predict Floods**.
+3. Enter the required weather parameters such as:
+   - Annual Rainfall
+   - Seasonal Rainfall
+   - Temperature
+   - Humidity
+   - Cloud Visibility
+4. Click the **Submit** button.
+
+---
+
+## 4. Backend Processing
+
+After the user submits the form:
+
+1. The Flask application receives the input values.
+2. The saved **StandardScaler** (`transform.save`) standardizes the input data.
+3. The saved **XGBoost model** (`floods.save`) predicts the flood status.
+4. The prediction result is generated instantly.
+
+---
+
+## 5. Prediction Output
+
+Based on the prediction result, the application redirects the user to one of the following pages:
+
+- **chance.html** – Displays when a flood is predicted.
+- **no_chance.html** – Displays when no flood risk is detected.
+
+---
+
+## Workflow Summary
+
+```text
+User Input
+     │
+     ▼
+Flask Application (app.py)
+     │
+     ▼
+StandardScaler (transform.save)
+     │
+     ▼
+XGBoost Model (floods.save)
+     │
+     ▼
+Prediction Result
+     │
+     ├── Flood Risk → chance.html
+     └── No Flood Risk → no_chance.html
+```
+
+---
 
 ## Conclusion
 
-Separating HTML templates and static assets creates a clean, maintainable, and professional Flask application. This structure improves usability, simplifies development, and provides an effective interface for real-time flood prediction.
+The Flask application integrates the trained machine learning model with a user-friendly web interface. It processes user input, applies the same preprocessing used during training, and generates accurate real-time flood predictions efficiently.
