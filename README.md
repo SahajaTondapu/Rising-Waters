@@ -1,47 +1,74 @@
-# Technologies Used
+# Project Flow
 
-The project was developed using a set of powerful Python-based tools and libraries for data processing, machine learning, visualization, and deployment. These technologies provide the foundation for efficient model development, analysis, and application deployment.
+The project is developed through a structured workflow consisting of multiple epics, covering data collection, analysis, preprocessing, model development, and deployment. Each epic focuses on a specific stage of the machine learning lifecycle to ensure systematic and efficient project execution.
 
-## Software
+## Epic 1: Data Collection
 
-### 1. Anaconda Navigator
-A desktop graphical user interface used to launch applications and manage Python packages and environments for data science.
+### Story 1
+- Download the flood prediction dataset and load it into the Jupyter Notebook environment for analysis and model development.
 
-Website: https://www.anaconda.com/download
+## Epic 2: Visualizing and Analysing the Data
 
-### 2. PyCharm
-An Integrated Development Environment (IDE) specifically designed for Python programming, offering code analysis and debugging tools.
+### Story 1
+- Import all required Python libraries for data manipulation, visualization, and machine learning.
 
-Website: https://www.jetbrains.com/pycharm/
+### Story 2
+- Read and explore the dataset to understand its structure, features, and target variable.
 
-## Python Libraries
+### Story 3
+- Perform univariate analysis to study the distribution and characteristics of individual variables.
 
-### 3. NumPy
-Core library for numerical computing in Python, providing support for large, multi-dimensional arrays and mathematical functions.
+### Story 4
+- Conduct multivariate analysis to identify relationships and dependencies among multiple features.
 
-Website: https://numpy.org/doc/stable/
+### Story 5
+- Perform descriptive statistical analysis to summarize key insights and trends within the dataset.
 
-### 4. Pandas
-Data manipulation and analysis library offering data structures and operations for manipulating numerical tables and time series.
+## Epic 3: Data Pre-Processing
 
-Website: https://pandas.pydata.org/docs/
+### Story 1
+- Identify and handle missing values to improve data quality and consistency.
 
-### 5. Scikit-learn
-Machine learning library featuring classification, regression, and clustering algorithms.
+### Story 2
+- Detect and treat outliers that may negatively impact model performance.
 
-Website: https://scikit-learn.org/stable/
+### Story 3
+- Convert categorical variables into numerical representations suitable for machine learning algorithms.
 
-### 6. Matplotlib
-A comprehensive library for creating static, animated, and interactive visualizations in Python.
+### Story 4
+- Split the dataset into training and testing subsets for model training and evaluation.
 
-Website: https://matplotlib.org/stable/
+### Story 5
+- Apply feature scaling techniques to normalize numerical features and improve model accuracy.
 
-### 7. Seaborn
-A high-level data visualization library built on top of Matplotlib for creating attractive statistical graphics.
+## Epic 4: Model Building
 
-Website: https://seaborn.pydata.org/
+### Story 1
+- Train a Decision Tree model and evaluate its ability to predict flood risk.
 
-### 8. Flask
-A lightweight Python web framework used to build web applications and deploy machine learning models.
+### Story 2
+- Build and test a Random Forest model to achieve improved prediction performance.
 
-Website: https://flask.palletsprojects.com/
+### Story 3
+- Implement a K-Nearest Neighbors (KNN) model and analyze its classification results.
+
+### Story 4
+- Train an XGBoost model and compare its effectiveness against other machine learning models.
+
+### Story 5
+- Compare the performance of all developed models using appropriate evaluation metrics.
+
+### Story 6
+- Select the best-performing model, evaluate its final performance, and save it as a Pickle (.pkl) file for deployment.
+
+## Epic 5: Application Building
+
+### Story 1
+- Design and develop HTML pages to create a simple and user-friendly web interface.
+
+### Story 2
+- Build the Flask application and integrate the trained flood prediction model.
+
+### Story 3
+- Run, test, and validate the web application to ensure accurate predictions and proper functionality.
+- 
