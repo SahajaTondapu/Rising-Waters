@@ -1,44 +1,28 @@
-# Descriptive Analysis
+# Handling Missing Values
 
-Descriptive analysis provides a summary of the dataset by examining its structure, data types, and statistical properties. It helps in understanding the quality of the data before preprocessing and machine learning model development.
+Handling missing values is an important step in data preprocessing because incomplete data can reduce the accuracy and reliability of machine learning models. Missing values occur when information is unavailable or not recorded for one or more features.
 
-## Data Exploration Functions
+## Why Handle Missing Values?
 
-### `head()`
-Displays the first few rows of the dataset to understand its structure and verify that the data has been loaded correctly.
+- Improves data quality.
+- Prevents errors during model training.
+- Enhances prediction accuracy.
+- Ensures reliable machine learning performance.
 
-### `info()`
-Provides information about:
-- Column names
-- Data types
-- Number of non-null values
-- Missing values
-- Memory usage
+## Detecting Missing Values
 
-### `describe()`
-Generates statistical summaries for numerical features, including:
-- Mean
-- Standard Deviation
-- Minimum Value
-- Maximum Value
-- 25th Percentile
-- 50th Percentile (Median)
-- 75th Percentile
+The following Pandas functions are used to identify missing values in the dataset.
 
-## Understanding Data Types
+### `isnull().sum()`
 
-The dataset contains different types of data:
+- Returns the total number of missing values in each column.
+- Helps identify which features contain incomplete data.
 
-- **Numerical Data:** Rainfall, Temperature, Humidity, Cloud Visibility, etc.
-- **Categorical Data:** Flood Status or other category-based features (if available).
+### `isnull().any()`
 
-Understanding these data types helps determine suitable preprocessing methods and machine learning algorithms.
+- Checks whether any column contains missing values.
+- Returns **True** if missing values are present; otherwise, returns **False**.
 
 ## Workflow Impact
 
-Descriptive analysis provides a clear overview of the dataset and helps:
-
-- Understand the dataset structure.
-- Identify missing values and incorrect data types.
-- Detect inconsistencies before preprocessing.
-- Support effective feature engineering and model development.
+Handling missing values provides a clean and complete dataset before preprocessing and model training. It improves data consistency, reduces errors, and increases the overall performance of the Flood Prediction System.
