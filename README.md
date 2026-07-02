@@ -1,66 +1,75 @@
-# Feature Scaling
+# Decision Tree Model
 
-## Core Concept
+## Function Initialization
 
-Feature scaling is an important data preprocessing step that brings all input features into a similar numerical range. Without feature scaling, machine learning algorithms may assign greater importance to features with larger values, which can reduce model accuracy and performance.
+A separate function named `decisiontree()` is created to build, train, and evaluate the Decision Tree model. The function accepts the following parameters:
 
-## StandardScaler
+- `X_train`
+- `X_test`
+- `y_train`
+- `y_test`
 
-The **StandardScaler** from the Scikit-learn library is used to standardize numerical features.
+This modular approach makes the code reusable, organized, and easy to maintain.
 
-### Formula
+## Algorithm Overview
 
-\[
-z = \frac{x - \mu}{\sigma}
-\]
+The **DecisionTreeClassifier** from the Scikit-learn library is used to build the prediction model.
 
-Where:
+A Decision Tree is a supervised machine learning algorithm used for classification and prediction. It works by splitting the dataset into multiple branches based on feature values.
 
-- **x** = Original value
-- **μ** = Mean of the feature
-- **σ** = Standard deviation of the feature
+Each internal node represents a decision condition, while each leaf node represents the final predicted class.
 
-After transformation:
+## Model Training
 
-- Mean becomes approximately **0**
-- Standard deviation becomes approximately **1**
+The model is trained using the `fit()` method.
 
-This ensures that all input features contribute equally during model training.
+During training, the algorithm learns the relationship between the input features and the target variable.
 
-## Application Rules
+```python
+model.fit(X_train, y_train)
+```
 
-- Feature scaling is applied **only to the independent variables (X)**.
-- The target variable **(y)** is **not scaled** because it represents the output class.
+## Prediction
 
-## Workflow
+After training, the `predict()` method is used to generate predictions on the testing dataset.
 
-1. Fit the StandardScaler on the training dataset.
-2. Transform the training dataset.
-3. Use the same scaler to transform the testing dataset.
-4. Save the fitted scaler using Joblib or Pickle.
-5. During prediction, apply the saved scaler to new user inputs before passing them to the trained model.
+```python
+y_pred = model.predict(X_test)
+```
+
+The predicted values are compared with the actual values to evaluate model performance.
+
+## Model Evaluation
+
+The performance of the Decision Tree model is evaluated using the following metrics:
+
+### Confusion Matrix
+
+The confusion matrix displays:
+
+- True Positives (TP)
+- True Negatives (TN)
+- False Positives (FP)
+- False Negatives (FN)
+
+It helps determine how accurately the model classifies flood predictions.
+
+### Classification Report
+
+The classification report includes:
+
+- **Precision** – Percentage of correctly predicted positive observations.
+- **Recall** – Percentage of actual positive observations correctly identified.
+- **F1-Score** – Harmonic mean of Precision and Recall.
+- **Support** – Number of actual samples available for each class.
 
 ## Advantages
 
-- Normalizes numerical features.
-- Improves model stability.
-- Reduces feature bias.
-- Essential for algorithms such as:
-  - K-Nearest Neighbors (KNN)
-  - Logistic Regression
-  - Support Vector Machine (SVM)
-
-## Example Code
-
-```python
-from sklearn.preprocessing import StandardScaler
-
-sc = StandardScaler()
-
-X_train = sc.fit_transform(X_train)
-X_test = sc.transform(X_test)
-```
+- Easy to understand and interpret.
+- Handles numerical and categorical data.
+- Requires minimal data preprocessing.
+- Suitable for classification problems.
 
 ## Conclusion
 
-Feature scaling standardizes numerical features so that machine learning algorithms can learn efficiently. Saving and reusing the fitted scaler ensures that real-time input data is processed consistently, leading to accurate and reliable flood prediction.
+The Decision Tree model is trained and evaluated to determine its prediction performance. If the model achieves satisfactory accuracy, it can be selected for deployment. Otherwise, its performance is compared with other algorithms such as Random Forest, K-Nearest Neighbors (KNN), and XGBoost to identify the best-performing model.
