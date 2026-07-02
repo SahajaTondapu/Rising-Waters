@@ -1,48 +1,86 @@
-# Saving the Final Model
+# Frontend Development
 
 ## Overview
 
-After evaluating all machine learning models, **XGBoost** was selected as the final model because of its high prediction accuracy and reliable performance. Instead of retraining the model every time a prediction is required, the trained model is saved for future use.
+The frontend of the Flood Prediction System is developed using the Flask framework. It uses the **templates/** folder to store HTML pages and the **static/** folder to store CSS and JavaScript files. This structure provides a clean, organized, and user-friendly interface for interacting with the flood prediction model.
 
-## Why Save the Model?
+## templates/ Folder (HTML Pages)
 
-Saving the trained model provides several advantages:
+The **templates/** folder contains the HTML pages used by the application.
 
-- Eliminates the need to retrain the model.
-- Reduces prediction time.
-- Ensures consistent prediction results.
-- Improves deployment efficiency.
+### home.html
 
-## Saving the Model
+- Landing page of the application.
+- Introduces the Flood Prediction System.
+- Provides navigation to the prediction page.
 
-The **Joblib** library is used to save the trained machine learning model and the fitted feature scaler.
+### index.html
 
-### Saved Files
+- Contains the input form for weather parameters.
+- Collects user input and sends it to the Flask backend for prediction.
 
-| File Name | Purpose |
-|-----------|---------|
-| `floods.save` | Stores the trained XGBoost model. |
-| `transform.save` | Stores the fitted StandardScaler used during preprocessing. |
+### chance.html
 
-## Prediction Workflow
+- Displays when the model predicts a **high probability of flooding**.
+- Shows an alert message to the user.
 
-During deployment, the prediction process follows these steps:
+### no_chance.html
 
-1. Load the saved **StandardScaler (`transform.save`)**.
-2. Standardize the user input using the loaded scaler.
-3. Load the trained **XGBoost model (`floods.save`)**.
-4. Pass the transformed input to the model.
-5. Generate the flood prediction.
-6. Display the prediction result to the user.
+- Displays when the model predicts **no flood risk**.
+- Shows a safe status message.
 
-## Benefits
+---
 
-- Faster predictions.
-- Consistent preprocessing.
-- No need for retraining.
-- Reliable real-time predictions.
-- Easy integration with Flask applications.
+## static/ Folder (Frontend Assets)
+
+The **static/** folder stores the application's styling and interactive files.
+
+### main.css
+
+- Controls the layout and design.
+- Improves the appearance of the application.
+- Provides responsive styling for different screen sizes.
+
+### main.js
+
+- Adds interactivity to the web pages.
+- Performs form validation.
+- Handles button actions and client-side functionality.
+
+---
+
+## Folder Structure
+
+```text
+Flood_Prediction/
+│
+├── templates/
+│   ├── home.html
+│   ├── index.html
+│   ├── chance.html
+│   └── no_chance.html
+│
+├── static/
+│   ├── main.css
+│   └── main.js
+│
+└── app.py
+```
+
+## Advantages
+
+- Well-organized project structure.
+- Easy to maintain and update.
+- Improves user experience.
+- Separates frontend and backend logic.
+- Supports scalable web application development.
+
+## References
+
+- HTML: https://www.w3schools.com/html/
+- CSS: https://www.w3schools.com/css/
+- JavaScript: https://www.w3schools.com/js/
 
 ## Conclusion
 
-Saving both the trained XGBoost model and the fitted StandardScaler ensures that the deployed Flood Prediction System performs predictions efficiently and consistently. This approach improves deployment speed, maintains prediction accuracy, and provides reliable real-time flood prediction results.
+Separating HTML templates and static assets creates a clean, maintainable, and professional Flask application. This structure improves usability, simplifies development, and provides an effective interface for real-time flood prediction.
