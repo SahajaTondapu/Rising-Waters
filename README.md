@@ -1,52 +1,66 @@
-# Splitting the Dataset into Independent and Dependent Variables
+# Feature Scaling
 
 ## Core Concept
 
-Splitting the dataset into independent and dependent variables is an important step before training a machine learning model. This process separates the input features from the target variable, enabling the model to learn the relationship between them and make accurate predictions.
+Feature scaling is an important data preprocessing step that brings all input features into a similar numerical range. Without feature scaling, machine learning algorithms may assign greater importance to features with larger values, which can reduce model accuracy and performance.
 
-## Independent Variables (X)
+## StandardScaler
 
-The **Independent Variables (X)** are the input features used by the machine learning model for prediction.
+The **StandardScaler** from the Scikit-learn library is used to standardize numerical features.
 
-### Purpose
+### Formula
 
-- Contain useful information required for prediction.
-- Represent the input features of the dataset.
-- Help the model identify patterns and relationships.
-- Only relevant features are selected to improve prediction accuracy.
+\[
+z = \frac{x - \mu}{\sigma}
+\]
 
-## Dependent Variable (y)
+Where:
 
-The **Dependent Variable (y)** is the target variable that the model is trained to predict.
+- **x** = Original value
+- **μ** = Mean of the feature
+- **σ** = Standard deviation of the feature
 
-### Purpose
+After transformation:
 
-- Represents the output or prediction label.
-- Contains one value for each record in the dataset.
-- Used as the expected result during model training.
+- Mean becomes approximately **0**
+- Standard deviation becomes approximately **1**
 
-## Creating X and y
+This ensures that all input features contribute equally during model training.
 
-The dataset is divided into input and output variables using the following approach:
+## Application Rules
+
+- Feature scaling is applied **only to the independent variables (X)**.
+- The target variable **(y)** is **not scaled** because it represents the output class.
+
+## Workflow
+
+1. Fit the StandardScaler on the training dataset.
+2. Transform the training dataset.
+3. Use the same scaler to transform the testing dataset.
+4. Save the fitted scaler using Joblib or Pickle.
+5. During prediction, apply the saved scaler to new user inputs before passing them to the trained model.
+
+## Advantages
+
+- Normalizes numerical features.
+- Improves model stability.
+- Reduces feature bias.
+- Essential for algorithms such as:
+  - K-Nearest Neighbors (KNN)
+  - Logistic Regression
+  - Support Vector Machine (SVM)
+
+## Example Code
 
 ```python
-X = dataset.drop('class', axis=1)
-y = dataset['class']
+from sklearn.preprocessing import StandardScaler
+
+sc = StandardScaler()
+
+X_train = sc.fit_transform(X_train)
+X_test = sc.transform(X_test)
 ```
-
-- `X` contains all input features.
-- `y` contains the target variable (class).
-
-## Importance
-
-Splitting the dataset into **X** and **y** provides several benefits:
-
-- Separates input and output data.
-- Prepares the dataset for train-test splitting.
-- Improves model training and evaluation.
-- Enables the algorithm to learn meaningful patterns.
-- Supports accurate flood prediction.
 
 ## Conclusion
 
-Separating the dataset into independent variables (**X**) and the dependent variable (**y**) is a fundamental preprocessing step. It ensures that the machine learning model learns from the input features and predicts the correct output efficiently.
+Feature scaling standardizes numerical features so that machine learning algorithms can learn efficiently. Saving and reusing the fitted scaler ensures that real-time input data is processed consistently, leading to accurate and reliable flood prediction.
