@@ -1,49 +1,41 @@
-# Loading and Exploring the Dataset
+# Univariate Analysis
 
-Loading raw data into the working environment is the first step before performing data analysis, preprocessing, or machine learning model development. The dataset is loaded using the Pandas library and converted into a DataFrame for efficient manipulation.
+Univariate analysis examines each feature of the dataset individually to understand its distribution, frequency, and pattern without comparing it with other variables. This analysis helps identify the characteristics of both numerical and categorical features before building machine learning models.
 
-## Data Loading Functions (Pandas)
+## Objectives
 
-The following Pandas functions are commonly used to load different file formats:
+- Understand the distribution of each feature.
+- Identify skewness and data imbalance.
+- Detect potential outliers.
+- Support effective data preprocessing and feature engineering.
 
-- **CSV:** `read_csv()` – Loads data from CSV files.
-- **Excel:** `read_excel()` – Loads data from Excel spreadsheets.
-- **JSON:** `read_json()` – Loads JSON formatted data.
-- **Text:** `read_table()` or `read_csv()` with a custom separator.
+## Distribution Plots
 
-**Result:**  
-The dataset is converted into a two-dimensional **Pandas DataFrame**, making it easier to analyze and manipulate.
+Distribution plots are used to visualize the spread of numerical data.
 
-## Data Exploration Functions
+### Purpose
 
-The following functions help in understanding the dataset:
+- Determine whether data follows a normal or skewed distribution.
+- Identify where most values are concentrated.
+- Analyze the shape and spread of features such as rainfall and temperature.
+- Assist in selecting appropriate preprocessing and feature scaling techniques.
 
-### `head()`
-Displays the first few rows of the dataset to verify that the data has been loaded correctly.
+## Box Plots
 
-### `shape`
-Returns the total number of rows and columns in the dataset.
+Box plots summarize the statistical distribution of numerical variables using quartiles.
 
-### `info()`
-Displays:
-- Column names
-- Data types
-- Number of non-null values
-- Memory usage
+### Purpose
 
-### `describe()`
-Generates descriptive statistics including:
-- Mean
-- Standard Deviation
-- Minimum Value
-- Maximum Value
-- Quartiles (25%, 50%, 75%)
+- Display the median and quartiles.
+- Detect outliers in the dataset.
+- Visualize the spread of data.
+- Help determine whether outlier treatment is required.
 
-## Workflow Impact
+## Importance
 
-Proper data loading and exploration:
+Performing univariate analysis helps in:
 
-- Prevents file path and format errors.
-- Helps understand the dataset structure.
-- Identifies missing values and incorrect data types.
-- Prepares the dataset for visualization, preprocessing, and machine learning model development.
+- Understanding the behavior of individual variables.
+- Detecting anomalies before model training.
+- Improving preprocessing decisions.
+- Enhancing the overall performance of machine learning models.
